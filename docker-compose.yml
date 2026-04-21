@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: seniorcare_db
+      MYSQL_ROOT_PASSWORD: 123Suezx.
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: ./server
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=seniorcare_db;User=root;Password=your_password;
+    ports:
+      - "5000:80"
+
+  frontend:
+    build: ./SeniorCareAucklandLtd 
+    ports:
+      - "5173:5173"
