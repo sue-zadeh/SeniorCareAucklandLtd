@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-scroll'
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo1.png'
 
 const serviceItems = [
   { id: 'personal-care', label: 'Support Services - Personal Care' },
