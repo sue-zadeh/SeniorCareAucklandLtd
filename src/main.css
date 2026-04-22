@@ -1,0 +1,391 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #20384b;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link-custom,
+.nav-btn-custom {
+  position: relative;
+  text-decoration: none;
+  color: #43556a;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.25s ease;
+}
+
+.nav-link-custom:hover,
+.nav-btn-custom:hover,
+.nav-active {
+  color: #204e73;
+}
+
+.nav-link-custom::after,
+.nav-btn-custom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #6cab73, #4b8ba6);
+  transition: width 0.28s ease;
+  border-radius: 20px;
+}
+
+.nav-link-custom:hover::after,
+.nav-btn-custom:hover::after,
+.nav-active::after {
+  width: 100%;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.services-dropdown {
+  position: relative;
+}
+
+.services-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  height: 16px;
+}
+
+.services-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 350px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.22s ease;
+}
+
+.services-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.services-item {
+  display: block;
+  text-decoration: none;
+  color: #32475b;
+  padding: 13px 18px;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.services-item:hover {
+  background: #f3f8fb;
+  color: #215b7f;
+  padding-left: 22px;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+.mobile-toggle-btn {
+  background: none;
+  border: none;
+  color: #33475b;
+  padding: 6px 8px;
+}
+
+.mobile-menu {
+  display: none;
+  padding-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+.mobile-link,
+.mobile-services-btn,
+.mobile-sub-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: #34495e;
+  text-align: left;
+  padding: 12px 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mobile-services-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-services-menu {
+  display: none;
+  padding-left: 14px;
+}
+
+.mobile-services-menu.show {
+  display: block;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-section {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  min-height: 100vh;
+  padding-top: 95px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.58) 0%,
+      rgba(255, 255, 255, 0.26) 35%,
+      rgba(255, 255, 255, 0.10) 70%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+}
+
+/* =========================
+   BRAND BLOCK ON PICTURE
+========================= */
+.hero-brand-block {
+  position: absolute;
+  top: 26px;
+  left: 52px;   /* more inside */
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.brand-name-line {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-senior {
+  color: #7fb56f;
+}
+
+.brand-healthcare {
+  background: linear-gradient(90deg, #6cab73 0%, #4d91a8 65%, #2d5d84 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-wave {
+  width: 170px;
+  height: 12px;
+  margin-top: 3px;
+  margin-left: 46px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='20' viewBox='0 0 180 20'%3E%3Cpath d='M4 12 C 24 4, 44 4, 64 12 S 104 20, 124 12 S 156 4, 176 12' fill='none' stroke='%23467d9c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.brand-auckland {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #355f7e;
+  font-size: clamp(0.95rem, 1.2vw, 1.22rem);
+  line-height: 1;
+  margin-left: 50px;
+  margin-top: 1px;
+}
+
+.hero-brand-logo {
+  width: clamp(72px, 7vw, 110px);
+  height: auto;
+  margin-top: 12px;
+  margin-left: 14px;
+  object-fit: contain;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+.hero-content-card {
+  padding-top: 5rem;
+}
+
+.hero-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 0.95;
+  color: #163452;
+  font-size: clamp(2.3rem, 6vw, 5.5rem);
+  max-width: 680px;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.22);
+}
+
+.hero-text {
+  color: #243f57;
+  font-size: clamp(1rem, 1.7vw, 1.5rem);
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.hero-btn-primary {
+  background: #f0c445 !important;
+  color: #16283b !important;
+  border: none !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 24px rgba(240, 196, 69, 0.25);
+  transition: all 0.25s ease !important;
+}
+
+.hero-btn-primary:hover {
+  background: #ddb231 !important;
+  transform: translateY(-2px);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #163452 !important;
+  border: 1px solid rgba(22, 52, 82, 0.12) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease !important;
+}
+
+.hero-btn-secondary:hover {
+  background: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   OTHER SECTIONS
+========================= */
+.content-section {
+  scroll-margin-top: 100px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1199.98px) {
+  .hero-content-card {
+    padding-top: 4.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-overlay {
+    padding-top: 82px;
+  }
+
+  .hero-brand-block {
+    top: 18px;
+    left: 24px;
+  }
+
+  .hero-content-card {
+    padding-top: 7.6rem;
+  }
+
+  .hero-title {
+    max-width: 100%;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-brand-block {
+    top: 16px;
+    left: 18px;
+  }
+
+  .brand-name-line {
+    font-size: 1.2rem;
+  }
+
+  .brand-wave {
+    width: 115px;
+    margin-left: 36px;
+  }
+
+  .brand-auckland {
+    font-size: 0.88rem;
+    margin-left: 38px;
+  }
+
+  .hero-brand-logo {
+    width: 74px;
+    margin-left: 8px;
+  }
+
+  .hero-content-card {
+    padding-top: 8.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 10vw, 2.8rem);
+    max-width: 82%;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    max-width: 92%;
+  }
+
+  .services-menu {
+    min-width: 280px;
+  }
+}
